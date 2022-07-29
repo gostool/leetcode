@@ -1,14 +1,8 @@
 package code
 
 func merge(nums1 []int, nums2 []int) (nums []int) {
-	for low1, low2 := 0, 0; low1 < len(nums1) || low2 < len(nums2); {
-		if low1 >= len(nums1) {
-			nums = append(nums, nums2[low2:]...)
-			return
-		} else if low2 >= len(nums2) {
-			nums = append(nums, nums1[low1:]...)
-			return
-		}
+	low1, low2 := 0, 0
+	for low1 < len(nums1) && low2 < len(nums2) {
 		if nums1[low1] < nums2[low2] {
 			nums = append(nums, nums1[low1])
 			low1++
@@ -16,6 +10,12 @@ func merge(nums1 []int, nums2 []int) (nums []int) {
 			nums = append(nums, nums2[low2])
 			low2++
 		}
+	}
+	if low1 >= len(nums1) {
+		nums = append(nums, nums2[low2:]...)
+	}
+	if low2 >= len(nums2) {
+		nums = append(nums, nums1[low1:]...)
 	}
 	return
 }
