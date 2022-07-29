@@ -17,7 +17,17 @@ func Test_findMedianSortedArrays(t *testing.T) {
 			name: "01",
 			args: args{
 				nums1: []int{1, 3},
+				nums2: []int{2},
 			},
+			want: 2.0,
+		},
+		{
+			name: "02",
+			args: args{
+				nums1: []int{1, 3},
+				nums2: []int{2, 4},
+			},
+			want: 2.5,
 		},
 	}
 	for _, tt := range tests {
