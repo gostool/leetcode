@@ -1,6 +1,6 @@
 package code
 
-import "fmt"
+import "sort"
 
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
@@ -13,18 +13,30 @@ func twoSum(nums []int, target int) []int {
 	return nil
 }
 
-func twoSumList(ansMap map[string]bool, nums []int, target int) []int {
-	m := make(map[int]bool)
+// twoSumList
+// 使用双指针
+func twoSumList(nums []int, target int) [][]int {
+	sort.Ints(nums)
 	ans := make([][]int, 0)
-	for _, a := range nums {
-		b := target - a
-		if _, ok := m[b]; ok {
-			k := fmt.Sprintf("%v+%v=%v", a, b, target)
-			fmt.Printf("%v+%v=%v", a, b, target)
-
-			ans = append(ans, []int{a, b})
+	left, right := 0, len(nums)-1
+	for left < right {
+		ret := nums[left] + nums[right]
+		if ret == target {
+			ans = append(ans, []int{nums[left], nums[right]})
+			// 考虑重复元素
+			for nums[left+1] == nums[left] {
+				left++
+			}
+			for nums[right-1] == nums[right] {
+				right--
+			}
+			left++
+			right--
+		} else if ret < target {
+			left++
+		} else {
+			right--
 		}
-		m[a] = true
 	}
-	return nil
+	return ans
 }
