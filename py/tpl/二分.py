@@ -35,7 +35,8 @@ def left_binary_search(nums: List[int], target: int) -> int:
             left = mid + 1
         elif nums[mid] > target:
             right = mid - 1
-    if left < len(nums) and nums[left] != target:
+    # 判断是否越界
+    if left >= len(nums) or nums[left] != target:
         return -1
     return left
 
@@ -53,7 +54,8 @@ def right_binary_search(nums: List[int], target: int) -> int:
             left = mid + 1
         elif nums[mid] > target:
             right = mid - 1
-    if right < len(nums) and nums[right] != target:
+    # 判断是否越界
+    if right >= len(nums) or nums[right] != target:
         return -1
     return right
 
