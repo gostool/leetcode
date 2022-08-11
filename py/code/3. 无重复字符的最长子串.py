@@ -40,17 +40,21 @@ class Solution:
 
 
 def main():
-    s = "abcabcbb"
+    s = "abcdec"
     ret = Solution().lengthOfLongestSubstring(s)
-    assert 3 == ret, "s:{} ret {}".format(s, ret)
-
-    s = "pwwkew"
-    ret = Solution().lengthOfLongestSubstring(s)
-    assert 3 == ret, "s:{} ret {}".format(s, ret)
-
-    s = "bbb"
-    ret = Solution().lengthOfLongestSubstring(s)
-    assert 1 == ret, "s:{} ret {}".format(s, ret)
+    assert 5 == ret, "s:{} ret {}".format(s, ret)
+    #
+    # s = "abcabcbb"
+    # ret = Solution().lengthOfLongestSubstring(s)
+    # assert 3 == ret, "s:{} ret {}".format(s, ret)
+    #
+    # s = "pwwkew"
+    # ret = Solution().lengthOfLongestSubstring(s)
+    # assert 3 == ret, "s:{} ret {}".format(s, ret)
+    #
+    # s = "bbb"
+    # ret = Solution().lengthOfLongestSubstring(s)
+    # assert 1 == ret, "s:{} ret {}".format(s, ret)
 
 
 if __name__ == '__main__':
