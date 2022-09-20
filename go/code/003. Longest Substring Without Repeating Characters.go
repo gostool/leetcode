@@ -50,10 +50,3 @@ func btLengthOfLongestSubstring(s string) int {
 	}
 	return ans
 }
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
