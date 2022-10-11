@@ -10,6 +10,9 @@ import heapq
 heapreplace(heap，n)弹出最小的元素被n替代
 heappush(heap,n)数据堆入
 heappop(heap)将数组堆中的最小元素弹出
+
+
+基于heappush/heappop + 线程锁 实现了 PriorityQueue
 """
 
 
